@@ -42,6 +42,9 @@ const createTodoElement = (todo, index) => {
   btndelete.innerHTML = "Supprimer";
   const btnEdit = document.createElement("button");
   btnEdit.innerHTML = "Editer";
+  const imgCheck = document.createElement("img");
+  imgCheck.src = "image/ok.jpg";
+
   btndelete.addEventListener("click", (event) => {
     event.stopPropagation();
     deleteTodo(index);
@@ -51,7 +54,7 @@ const createTodoElement = (todo, index) => {
     toggleEditMode(index);
   });
   li.innerHTML = `
-    <span class = "todo ${todo.done ? "green" : "done"}"><span/>
+    <span class = "todo ${(todo.done = "done")}"><span/>
     <p>${todo.text}</p>
     
      `;
@@ -60,6 +63,11 @@ const createTodoElement = (todo, index) => {
     toggleTodo(index);
   });
   li.append(btndelete, btnEdit);
+
+  if (todo.done === true) {
+    li.append(imgCheck);
+  }
+
   return li;
 };
 const createTodoEditElement = (todo, index) => {

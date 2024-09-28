@@ -91,7 +91,7 @@ li.todo.done {
 }
 
 .green {
-  background-color: green;
+  background-color: rgb(10, 247, 10);
   width: 100%;
   cursor: pointer;
 }
